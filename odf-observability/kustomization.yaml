@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: open-cluster-management-observability
+
+configMapGenerator:
+  - name: grafana-dashboard-odf
+    files:
+    #- grafana-dashboards/k8s-etcd.json
+    - grafana-dashboards/odf-dashboard.json
+    options:
+      annotations:
+        observability.open-cluster-management.io/dashboard-folder: "OpenShift Additional Dashboards"
+      labels:
+        grafana-custom-dashboard: "true"
+  - name: observability-metrics-odf-allowlist
+    files:
+    - files/odf_metrics_list.yaml
+    options:
+      disableNameSuffixHash: true
+
