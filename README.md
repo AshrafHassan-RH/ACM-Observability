@@ -1,5 +1,5 @@
 # ACM-Observability
-# To troubleshoot metrics are collected by Thanos
+ # To troubleshoot metrics are collected by Thanos
 To troubleshoot if the custom metrics are colloected by Thanos you have 2 methods:
 - From the Grafana of ACM Obervability you can create a test panel and check in the metrics if the new custom metrics is created or not.
 - You can run the following command in any of the Grafana pods in namespace open-cluster-management-observability
