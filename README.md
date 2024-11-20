@@ -1,4 +1,4 @@
-# ACM-Observability
+# ACM Observability
 ## Monitoring additional metrics by ACM observability
 To monitor additional metrics by ACM observability you need to do the following
 - Create a new configmap to allow additional metrics to be monitored, this config map must be called "observability-metrics-custom-allowlist"
