@@ -1,6 +1,7 @@
 names:
+  - odf_system_health_status
   - odf_system_raw_capacity_total_bytes
   - odf_system_raw_capacity_used_bytes
   - odf_system_iops_total_bytes
   - odf_system_latency_seconds
-
+  - odf_system_throughput_total_bytes

@@ -156,7 +156,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "",
+            "axisLabel": "Used Storage",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -237,7 +237,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "",
+            "axisLabel": "IOPS",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -320,7 +320,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Memory usage",
+            "axisLabel": "ODF Latency",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
