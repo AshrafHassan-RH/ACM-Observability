@@ -18,17 +18,17 @@
       }
     ]
   },
-  "editable": true,
   "description": "odf dashboard",
+  "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 38,
-  "iteration": 1731592196246,
+  "id": 82,
+  "iteration": 1732121637569,
   "links": [],
   "panels": [
     {
       "datasource": null,
-      "description": "",
+      "description": "ODF Utilization",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -84,11 +84,11 @@
         }
       ],
       "title": "ODF Utilization",
-      "description": "ODF Utilization",
       "type": "gauge"
     },
     {
       "datasource": null,
+      "description": "Total ODF Size (TB)",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -145,11 +145,11 @@
         }
       ],
       "title": "Total ODF Size (TB)",
-      "description": "Total ODF Size (TB)",
       "type": "stat"
     },
     {
       "datasource": null,
+      "description": "Total Used Storage",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -193,7 +193,7 @@
               }
             ]
           },
-          "unit": "decmbytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -217,7 +217,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(odf_system_raw_capacity_used_bytes{cluster=\"$cluster\",job=\"rook-ceph-mgr\"})/8/1024",
+          "expr": "sum(odf_system_raw_capacity_used_bytes{cluster=\"$cluster\",job=\"$job\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "",
@@ -225,12 +225,11 @@
         }
       ],
       "title": "Total Used Storage",
-      "description": "Total Used Storage",
       "type": "timeseries"
     },
     {
       "datasource": null,
-      "description": "",
+      "description": "ODF IOPs",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -299,7 +298,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(odf_system_iops_total_bytes{cluster=\"$cluster\",job=\"rook-ceph-mgr\"})",
+          "expr": "sum(odf_system_iops_total_bytes{cluster=\"$cluster\",job=\"$job\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "",
@@ -307,13 +306,94 @@
         }
       ],
       "title": "ODF IOPs",
-      "description": "ODF IOPs",
       "transformations": [],
       "type": "timeseries"
     },
     {
       "datasource": null,
-      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "MBps",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "hidden",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(odf_system_throughput_total_bytes{cluster=\"$cluster\",job=\"$job\"})",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Throughput",
+      "type": "timeseries"
+    },
+    {
+      "datasource": null,
+      "description": "ODF Latency",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -368,7 +448,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 32
       },
       "id": 4,
       "options": {
@@ -395,7 +475,6 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "ODF Latency",
-      "description": "ODF Latency",
       "transformations": [],
       "type": "timeseries"
     }
@@ -451,13 +530,13 @@
         "description": null,
         "error": null,
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": null,
-        "multi": true,
-        "name": "namespace",
+        "multi": false,
+        "name": "job",
         "options": [],
         "query": {
-          "query": "label_values(kube_pod_info{cluster=\"$cluster\"}, namespace)",
+          "query": "label_values(odf_system_health_status{cluster=\"$cluster\"}, job)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 2,
@@ -469,12 +548,12 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "ODF",
   "uid": "odfmetricsdashboard",
-  "version": 1
+  "version": 2
 }

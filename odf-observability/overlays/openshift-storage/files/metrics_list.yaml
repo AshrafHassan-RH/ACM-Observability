@@ -5,3 +5,5 @@ names:
   - odf_system_iops_total_bytes
   - odf_system_latency_seconds
   - odf_system_throughput_total_bytes
+matches:
+  - __name__="csv_succeeded",exported_namespace="openshift-storage",name=~"odf-operator.*"
