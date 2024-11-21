@@ -21,15 +21,16 @@ https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for
 
 ##  Troubleshooting
 - Adding new metrics will trigger a restart of metrics-collector-deployment pod and/or uwl-metrics-collector-deployment pod in the namespace "open-cluster-management-observability" to checks these pods on the hub cluster to make sure that new metrics are onboarded successfully
-[========]
-  `#oc get pods -n open-cluster-management-observability`
-[========]
+  
+
+`#oc get pods -n open-cluster-management-observability`
 
 - To check if the thanos is creating collect the new metrics you can run the following command in any of the grafana pods in open-cluster-management-observability
-[========]
-`  curl 'http://rbac-query-proxy.open-cluster-management-observability.svc.cluster.local:8080/api/v1/query?query=<new_metric>' -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"`
-[========]
+
+
+`curl 'http://rbac-query-proxy.open-cluster-management-observability.svc.cluster.local:8080/api/v1/query?query=<new_metric>' -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"`
+
    Example:
-[========]
-   `curl 'http://rbac-query-proxy.open-cluster-management-observability.svc.cluster.local:8080/api/v1/query?query=odf_system_latency_seconds' -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"`
-[========]
+
+
+`curl 'http://rbac-query-proxy.open-cluster-management-observability.svc.cluster.local:8080/api/v1/query?query=odf_system_latency_seconds' -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"`
