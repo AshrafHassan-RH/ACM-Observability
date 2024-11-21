@@ -1,0 +1,7 @@
+names:
+  #ACS
+  - rox_sensor_uptime_seconds
+  - rox_sensor_info
+  - rox_sensor_secured_nodes
+  - rox_sensor_secured_vcpus
+  #You can add below further metrics if needed

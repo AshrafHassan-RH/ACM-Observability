@@ -6,7 +6,6 @@ namespace: open-cluster-management-observability
 configMapGenerator:
   - name: grafana-dashboard-odf
     files:
-    #- grafana-dashboards/k8s-etcd.json
     - grafana-dashboards/odf-dashboard.json
     options:
       disableNameSuffixHash: true
