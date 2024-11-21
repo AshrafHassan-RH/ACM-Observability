@@ -22,10 +22,93 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 82,
-  "iteration": 1732121637569,
+  "id": 84,
+  "iteration": 1732175281472,
   "links": [],
   "panels": [
+    {
+      "datasource": null,
+      "description": "ODF Health State",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "blue",
+                  "index": 0,
+                  "text": "Unknown"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "Healthy"
+                },
+                "2": {
+                  "color": "yellow",
+                  "index": 2,
+                  "text": "Warning"
+                },
+                "3": {
+                  "color": "dark-red",
+                  "index": 3,
+                  "text": "Error"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "Cluster is not reporting the relevant metrics",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^odf_system_health_status\\{cluster=\"local\\-cluster\", clusterID=\"75fb7624-5a48-40d3-b004-e23eaa271fcb\", container=\"core\", endpoint=\"mgmt\", instance=\"10\\.131.0.7:8080\", job=\"noobaa-mgmt\", namespace=\"openshift-storage\", pod=\"noobaa-core-0\", receive=\"true\", service=\"noobaa-mgmt\", system_type=\"OCS\", system_vendor=\"Red Hat\", tenant_id=\"419a9820-4590-48ed-9ea6-005b478bbbf3\"\\}$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "value"
+      },
+      "pluginVersion": "8.5.20",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "odf_system_health_status{cluster=\"$cluster\"}",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "ODF Health State",
+      "type": "stat"
+    },
     {
       "datasource": null,
       "description": "ODF Utilization",
@@ -37,6 +120,7 @@
           "mappings": [],
           "max": 100,
           "min": 0,
+          "noValue": "Cluster is not reporting the relevant metrics",
           "thresholds": {
             "mode": "percentage",
             "steps": [
@@ -55,9 +139,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
+        "h": 10,
+        "w": 8,
+        "x": 8,
         "y": 0
       },
       "id": 9,
@@ -95,16 +179,13 @@
             "mode": "thresholds"
           },
           "mappings": [],
+          "noValue": "Cluster is not reporting the relevant metrics",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -113,9 +194,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
+        "h": 10,
+        "w": 8,
+        "x": 16,
         "y": 0
       },
       "id": 7,
@@ -184,6 +265,7 @@
             }
           },
           "mappings": [],
+          "noValue": "Cluster is not reporting the relevant metrics",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -198,10 +280,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 24,
+        "h": 11,
+        "w": 12,
         "x": 0,
-        "y": 8
+        "y": 10
       },
       "id": 11,
       "options": {
@@ -264,6 +346,7 @@
             }
           },
           "mappings": [],
+          "noValue": "Cluster is not reporting the relevant metrics",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -278,10 +361,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 16
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 10
       },
       "id": 3,
       "options": {
@@ -345,6 +428,7 @@
             }
           },
           "mappings": [],
+          "noValue": "Cluster is not reporting the relevant metrics",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -363,10 +447,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 24,
+        "h": 12,
+        "w": 12,
         "x": 0,
-        "y": 24
+        "y": 21
       },
       "id": 13,
       "options": {
@@ -431,6 +515,7 @@
             }
           },
           "mappings": [],
+          "noValue": "Cluster is not reporting the relevant metrics",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -445,10 +530,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 32
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 21
       },
       "id": 4,
       "options": {
@@ -490,7 +575,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "local-cluster",
           "value": "local-cluster"
         },
@@ -517,13 +602,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "selected": false,
+          "text": "noobaa-mgmt",
+          "value": "noobaa-mgmt"
         },
         "datasource": null,
         "definition": "label_values(kube_pod_info{cluster=\"$cluster\"}, namespace)",
@@ -548,12 +629,12 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "ODF",
   "uid": "odfmetricsdashboard",
-  "version": 2
+  "version": 7
 }
