@@ -11,14 +11,14 @@ https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for
 - Create a configmap whjch contains the Grafana dashboards in json format in open-cluster-management-observability.
 
 ###### Remarks:
-1.    The configmap must be located in the namespace which has this application (for odf it has to be in openshift-storage)
-2.    In case you are monitoring metrics available in openshift by default (i.e. odf) the list has to be called metrics_list.yaml where Thanos will collect these metrics from the Prometheus in the namespace "openshift-monitoring"
-3.     In case you are monitoring user specific workloads (i.e. ACS), the list has to be called uwl_metrics_list.yaml where Thanos will collect these metrics from the prometheus in the namespace "openshift-user-workload-monitoring"
-4.     Having new allowlist will trigger the restart of metrics-collector-deployment pod and/or uwl-metrics-collector-deployment pod in the namespace "open-cluster-management-observability"
-5.     It is not allowed to used wildcard to add metrics in the allowlist because it can onboard too much data that cannot be adequately digested and stored at the central hub location please check this link for more information.
-       https://access.redhat.com/solutions/7049583
-6.     In case you want to add metrics available in the managed clusters, the configmap of the allowlist has to be deployed in the namespace "open-cluster-management-observability", so to monitor the odf in the hub cluster only you need allowlist configmap to be created in the namespace "openshift-storage", and to monitor the odf in all the managed cluster (hub cluster and spoke clusters) you need allowlist configmap in open-cluster-management-observability
-7.    In this Kustomization charts here the allowlist configmap for both the metrics_list and uwl_metrics_list are placed in the namespace "open-cluster-management-observability" manage this list from one configmap
+1. The configmap must be located in the namespace which has this application (for odf it has to be in openshift-storage)
+2. In case you are monitoring metrics available in openshift by default (i.e. odf) the list has to be called metrics_list.yaml where Thanos will collect these metrics from the Prometheus in the namespace "openshift-monitoring"
+3. In case you are monitoring user specific workloads (i.e. ACS), the list has to be called uwl_metrics_list.yaml where Thanos will collect these metrics from the prometheus in the namespace "openshift-user-workload-monitoring"
+4. Having new allowlist will trigger the restart of metrics-collector-deployment pod and/or uwl-metrics-collector-deployment pod in the namespace "open-cluster-management-observability"
+5. It is not allowed to used wildcard to add metrics in the allowlist because it can onboard too much data that cannot be adequately digested and stored at the central hub location please check this link for more information.
+   https://access.redhat.com/solutions/7049583
+6. In case you want to add metrics available in the managed clusters, the configmap of the allowlist has to be deployed in the namespace "open-cluster-management-observability", so to monitor the odf in the hub cluster only you need allowlist configmap to be created in the namespace "openshift-storage", and to monitor the odf in all the managed cluster (hub cluster and spoke clusters) you need allowlist configmap in open-cluster-management-observability
+7. In this Kustomization charts here the allowlist configmap for both the metrics_list and uwl_metrics_list are placed in the namespace "open-cluster-management-observability" manage this list from one configmap
 
 
 
