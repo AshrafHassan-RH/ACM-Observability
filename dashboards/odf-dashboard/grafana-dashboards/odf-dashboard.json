@@ -607,7 +607,7 @@
           "value": "noobaa-mgmt"
         },
         "datasource": null,
-        "definition": "label_values(kube_pod_info{cluster=\"$cluster\"}, namespace)",
+        "definition": "label_values(job)",
         "description": null,
         "error": null,
         "hide": 0,
